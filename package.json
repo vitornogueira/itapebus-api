@@ -1,0 +1,44 @@
+{
+  "name": "itapebus-api",
+  "version": "1.0.0",
+  "description": "",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node app",
+    "scrapper": "node scrap",
+    "knex": "knex --knexfile ./knexfile.js",
+    "postinstall": "npm run knex -- migrate:latest && npm run scrapper",
+    "lint": "eslint ."
+  },
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:vitornogueira/itapebus-api.git"
+  },
+  "engines": {
+    "node": "6.1.0"
+  },
+  "keywords": [],
+  "author": "Vitor Nogueira <vnweb.contato@gmail.com>",
+  "license": "MIT",
+  "dependencies": {
+    "bookshelf": "0.9.5",
+    "bookshelf-uuid": "1.0.0",
+    "cheerio": "0.20.0",
+    "colors": "1.1.2",
+    "hapi": "13.4.1",
+    "knex": "0.11.5",
+    "pg": "4.5.5",
+    "pg-hstore": "2.3.2",
+    "request": "2.72.0",
+    "request-promise": "3.0.0",
+    "winston": "2.2.0"
+  },
+  "devDependencies": {
+    "eslint": "2.11.0",
+    "eslint-config-airbnb": "9.0.1",
+    "eslint-plugin-import": "1.8.1",
+    "eslint-plugin-jsx-a11y": "1.4.2",
+    "eslint-plugin-react": "5.1.1"
+  }
+}

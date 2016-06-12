@@ -1,0 +1,15 @@
+exports.up = knex => knex.schema.createTable('schedules', table => {
+  table.uuid('id').primary()
+  table.uuid('route_id')
+    .notNullable()
+    .references('id')
+    .inTable('routes')
+  table.string('title').notNullable()
+  table.string('description').notNullable()
+  table.string('type').notNullable()
+  table.string('url').notNullable()
+  table.index(['route_id', 'title'], 'route_schedule_title')
+  table.timestamps()
+})
+
+exports.down = knex => knex.schema.dropTable('schedules')
