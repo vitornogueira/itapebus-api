@@ -1,24 +1,24 @@
 # ItapeBus API
 
-## Public API with schedules in the city buses of Itapetininga, SP - Brazil.
+## API pública com horários dos ônibus da cidade de Itapetininga/SP.
 
-The data is extracted from the Company [Rosa turismo - http://www.rosaturismo.com.br/itapetininga/](http://www.rosaturismo.com.br/itapetininga/) site through a scrapper.
+Os dados são extraídos do site da Empresa [Rosa turismo - http://www.rosaturismo.com.br/itapetininga/](http://www.rosaturismo.com.br/itapetininga/) através de um scrapper.
 
-Currently API has three routes:
+Atualmente a API tem 3 rotas:
 
-- List routes: `/routes`
+- Listar Rotas: `/routes`
 
 ```shell
 curl https://itapebus-api.heroku.com/routes
 ```
 
-- Show route: `/routes/:routeId`
+- Exibir rota: `/routes/:routeId`
 
 ```shell
 curl https://itapebus-api.heroku.com/routes/:routeId
 ```
 
-- Show schedules: `/schedules/:scheduleId`
+- Exibir horários: `/schedules/:scheduleId`
 
 ```shell
 curl https://itapebus-api.heroku.com/schedules/:scheduleId
@@ -26,8 +26,8 @@ curl https://itapebus-api.heroku.com/schedules/:scheduleId
 
 ## TODO
 
-- [ ] Tests
-- [ ] Routes
+- [ ] Testes
+- [ ] Rotas
   - [ ] Linha 01 - Unimed X Vila Regina
   - [ ] Linha 02 - Taboãozinho X Bela Vista
   - [ ] Linha 03 - Chapada Grande X Chapadinha
