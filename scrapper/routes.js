@@ -4,10 +4,13 @@ const fs = require('fs')
 
 const request = require('./util/request')
 const schedule = require('./schedule')
-const config = require('../config/scrapper')
+const scrapperConfig = require('../config/scrapper')
+const sheetsConfig = require('../config/sheets.js')
+
+console.log(sheetsConfig)
 
 const scrap = function routesScrap() {
-  const URL = `${config.PATH}/rotas.html`
+  const URL = `${scrapperConfig.PATH}/rotas.html`
 
   return request(URL)
     .then(($) => {
@@ -21,17 +24,14 @@ const scrap = function routesScrap() {
         const info = $route.text().split(/\n/)
         const line = info[0].trim()
         const name = info[1].trim()
-        const url = `${config.PATH}/${$route.find('a').attr('href')}`
+        const url = `${scrapperConfig.PATH}/${$route.find('a').attr('href')}`
+        const lineSlug = line.toLowerCase().replace(' ', '-')
 
-        try {
-          const lineSlug = line.toLowerCase().replace(' ', '-')
-
-          fs.statSync(`./scrapper/sheets/${lineSlug}.js`)
-
-          routes.push({ line, name, url })
-        } catch (error) {
-          // line sheet not implemented
+        if (!sheetsConfig[lineSlug]) {
+          return true
         }
+
+        routes.push({ line, name, url })
       })
 
       return Promise.all(routes.map(route => schedule(route)))

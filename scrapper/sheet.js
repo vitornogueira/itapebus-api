@@ -1,12 +1,13 @@
 const request = require('./util/request')
+const sheetBuilder = require('./util/sheet')
+const sheetsConfig = require('../config/sheets.js')
 
 const scrap = function sheetScrap(route, url) {
   return request(url)
     .then(($) => {
       const lineSlug = route.line.toLowerCase().replace(' ', '-')
-      const sheetBuilder = require(`./sheets/${lineSlug}`) // eslint-disable-line global-require
 
-      return sheetBuilder($)
+      return sheetBuilder($, sheetsConfig[lineSlug])
     })
 }
 
