@@ -25,7 +25,7 @@ function hasBreakLine($nextRow, lineConfig) {
 }
 
 function getHourClasses(lineConfig) {
-  return lineConfig.hourClasses.map(hourClass => `td.${hourClass}`)
+  return lineConfig.hourClasses.map(hourClass => `td.${hourClass}`).join(',')
 }
 
 module.exports = function build($, lineConfig) {

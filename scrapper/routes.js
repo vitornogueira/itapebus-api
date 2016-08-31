@@ -7,8 +7,6 @@ const schedule = require('./schedule')
 const scrapperConfig = require('../config/scrapper')
 const sheetsConfig = require('../config/sheets.js')
 
-console.log(sheetsConfig)
-
 const scrap = function routesScrap() {
   const URL = `${scrapperConfig.PATH}/rotas.html`
 
