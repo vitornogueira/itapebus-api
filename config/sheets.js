@@ -3,7 +3,7 @@ module.exports = {
     description: 'xl150',
     subtitles: 'xl155',
     breakLineClasses: ['xl150', 'xl155', 'xl145'],
-    hourClasses: ['xl157', 'xl156', 'xl159']
+    hourClasses: ['xl157', 'xl156', 'xl159', 'xl167']
   },
   'linha-06': {
     description: 'xl144',
