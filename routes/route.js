@@ -5,6 +5,7 @@ const index = {
   path: '/routes',
   handler: (request, reply) => {
     Route
+      .query('orderBy', 'line')
       .fetchAll({
         columns: ['id', 'line', 'name']
       })
